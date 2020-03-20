@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+		<title>Lista lotów</title>
+		<meta name='viewport' content='width=device-width, initial-scale=1'>
+		<link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+	</head>
+	<body>
+
+	<div class="grid">
+
+		<div class="menu-container">
+		<ul class="menu">
+			<li> <a href="#loty"> Lista lotów </a> </li>
+			<li> <a href="#opoznione"> Opóźnione loty </a> </li>
+			<li> <a href=""> link </a> </li>
+			<li> <a href=""> link </a> </li>
+			<li> <a href=""> link </a> </li>
+			<li> <a href=""> link </a> </li>
+			<li> <a href=""> link </a> </li>
+			<li> <a href=""> link </a> </li>
+		</ul>
+		</div>
+
+		<div id="loty" class="lista">
+
+			<h1> Lista lotów </h1>
+
+			<p id="pierwszy" style="background-color: brown;"> &nbsp </p>
+			<p id="drugi" style="background-color:darkgreen;"> &nbsp  </p>
+
+			<table> 
+				<tr>
+					<th> nr lotu </th> <th> skąd </th> <th> dokąd </th> <th> data </th> <th> godzina </th>
+				</tr>
+
+				<tr>
+					<td> <a href="1.html"> 1 </a> </td> <td> Warszawa </td> <td> Lizbona </td> <td> 10-12-2011 </td> <td> 21:37 </td>
+				</tr>
+
+				<tr>
+					<td style="background-color:aqua; width: 100%; text-align: center;" colspan="5"> Ale super lot! </td>
+				</tr>
+
+				<tr>
+					<td> <a href=""> 2 </a>  </td> <td> C</td> <td> B </td> <td> 10-12-2011 </td> <td> 21:42 </td>
+				</tr>
+
+				<tr>
+					<td> <a href=""> 3 </a>  </td> <td> A</td> <td> C </td> <td> 10-12-2011 </td> <td> 06:09 </td>
+				</tr>
+
+			</table>
+
+			<img src="img/logo.jpg" alt="logofirmy">
+
+			<footer>
+				Autor : Michał Borowski
+			</footer>
+	
+		</div>
+
+		<div id="opoznione" class="opoznione">
+
+			<h1> Opóźnione loty </h1>
+
+			<p id="pierwszy" style="background-color: brown;"> &nbsp </p>
+			<p id="drugi" style="background-color:darkgreen;"> &nbsp  </p>
+
+			<table> 
+				<tr>
+					<th> nr lotu </th> <th> skąd </th> <th> dokąd </th> <th> data </th> <th> godzina </th> <th> opóźnienie </th>
+				</tr>
+
+				<tr>
+					<td> <a href="1.html"> 1 </a> </td> <td> Warszawa </td> <td> Lizbona </td> <td> 10-12-2011 </td> <td> 21:37 </td> <td> 5 minut </td>
+				</tr>
+
+				<tr>
+					<td> <a href=""> 3 </a>  </td> <td> A</td> <td> C </td> <td> 10-12-2011 </td> <td> 06:09 </td> <td> odwołany </td>
+				</tr>
+
+			</table>
+
+		</div>
+
+		<div class="rezerwacja">
+			<h1> Rezerwacja </h1>
+
+			<form>
+				Imię: <input type="text"> <br>
+				Nazwisko: <input type="text"> <br>
+
+				Skąd : <select id="skad"> 
+					<option value="Warszawa"> Warszawa </option>
+					<option value="Konstantynopol"> Konstantynopol </option>
+					<option value="Bruksela"> Bruksela </option>
+				</select> <br>
+
+				Dokąd : <select id="dokad"> 
+					<option value="Lizbona"> Lizbona </option>
+					<option value="Warszawa"> Warszawa </option>
+					<option value="Bruksela"> Bruksela </option>
+				</select> <br>
+
+				Data : <input type="data" id="data" value="2020-01-01" min="2020-01-01" max="2020-12-31"> <br>
+
+				<input type="reset" value="Reset" />
+				<input type="submit" value="Wyślij"> <br>
+
+			</form>
+
+		</div>
+
+		<br>
+	</div>
+	</body>
+</html>
