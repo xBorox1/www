@@ -13,4 +13,12 @@ function zaloguj() {
     console.log.apply(console, __spreadArrays(["Ależ skomplikowany program!"], komunikaty));
 }
 zaloguj("Ja", "cię", "nie", "mogę");
-//# sourceMappingURL=main.js.map
+var jsonString = "{\n\n\t\"piloci\": [\n\n\t\t\"Pirx\",\n\n\t\t\"Exupery\",\n\n\t\t\"Idzikowski\",\n\n\t\t\"G\u0142\u00F3wczewski\"\n\n\t],\n\n\t\"lotniska\": {\n\n\t\t\"WAW\": [\"Warszawa\", [3690, 2800]],\n\n\t\t\"NRT\": [\"Narita\", [4000, 2500]],\n\n\t\t\"BQH\": [\"Biggin Hill\", [1802, 792]],\n\n\t\t\"LBG\": [\"Paris-Le Bourget\", [2665, 3000, 1845]]\n\n\t}\n\n}";
+function sprawdzDaneLiniiLotniczej(dane) {
+    return dane && dane.piloci && dane.lotniska && dane.piloci.isArray && dane.piloci.isArray;
+}
+var daneLiniiLotniczej = JSON.parse(jsonString);
+if (sprawdzDaneLiniiLotniczej(daneLiniiLotniczej)) {
+    var juzNaPewnoDaneLinii = daneLiniiLotniczej;
+}
+console.log(daneLiniiLotniczej.piloci.length);
