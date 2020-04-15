@@ -160,6 +160,15 @@ footer {
 	  background-color: white;
   }
 
+  div.potwierdzenie {
+	  width: 100%;
+	  height: 100%;
+	  opacity: 50%;
+	  background-color: blue;
+	  position: absolute;
+	  font-size: 50px;
+  }
+
   @media (max-width: 600px) {
 	  body {
 		  font-size: 10px;
