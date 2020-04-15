@@ -50,8 +50,16 @@ function sprawdzDaneLiniiLotniczej(dane: any): dane is ILiniaLotnicza {
 	return dane && dane.piloci && dane.lotniska && dane.piloci.isArray && dane.piloci.isArray;
 }
 
+let submit = document.querySelector('input[type=submit]');
+submit.style.display = "none";
+
 let el = document.querySelector("div.potwierdzenie");
 el.style.display = "none";
+
+let nowyElement = document.createElement("p");
+let beforeElement = document.getElementById("ostatni");
+nowyElement.innerHTML = "To paragraf stworzony w typescript.";
+document.body.appendChild(nowyElement);
 
 function timeout() {
 setTimeout(() => {

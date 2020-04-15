@@ -17,8 +17,14 @@ var jsonString = "{\n\n\t\"piloci\": [\n\n\t\t\"Pirx\",\n\n\t\t\"Exupery\",\n\n\
 function sprawdzDaneLiniiLotniczej(dane) {
     return dane && dane.piloci && dane.lotniska && dane.piloci.isArray && dane.piloci.isArray;
 }
+var submit = document.querySelector('input[type=submit]');
+submit.style.display = "none";
 var el = document.querySelector("div.potwierdzenie");
 el.style.display = "none";
+var nowyElement = document.createElement("p");
+var beforeElement = document.getElementById("ostatni");
+nowyElement.innerHTML = "To paragraf stworzony w typescript";
+document.body.appendChild(nowyElement);
 function timeout() {
     setTimeout(function () {
         console.log("No już wreszcie.");
