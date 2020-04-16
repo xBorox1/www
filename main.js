@@ -110,11 +110,24 @@ function checkForm() {
     var day = ("0" + now.getDate()).slice(-2);
     var month = ("0" + (now.getMonth() + 1)).slice(-2);
     var today = now.getFullYear() + "-" + (month) + "-" + (day);
-    console.log(today);
-    console.log(elData.value);
     if (elData.value < today)
         return false;
     return true;
+}
+function formSubmit() {
+    var elRez = document.querySelector("div.potwierdzenie");
+    var elFor = document.getElementById("formularz");
+    var elImie = document.getElementById("imie");
+    var elNazw = document.getElementById("nazwisko");
+    var elData = document.getElementById("data");
+    var elSkad = document.getElementById("skad");
+    var elDokad = document.getElementById("dokad");
+    elRez.innerHTML = elRez.innerHTML + "<br> Imię : " + elImie.value;
+    elRez.innerHTML = elRez.innerHTML + "<br> Nazwisko : " + elNazw.value;
+    elRez.innerHTML = elRez.innerHTML + "<br> Skąd : " + elSkad.value;
+    elRez.innerHTML = elRez.innerHTML + "<br> Dokąd : " + elDokad.value;
+    elRez.innerHTML = elRez.innerHTML + "<br> Data : " + elData.value;
+    elRez.style.display = "block";
 }
 zaloguj("Ja", "cię", "nie", "mogę");
 var jsonString = "{\n\n\t\"piloci\": [\n\n\t\t\"Pirx\",\n\n\t\t\"Exupery\",\n\n\t\t\"Idzikowski\",\n\n\t\t\"G\u0142\u00F3wczewski\"\n\n\t],\n\n\t\"lotniska\": {\n\n\t\t\"WAW\": [\"Warszawa\", [3690, 2800]],\n\n\t\t\"NRT\": [\"Narita\", [4000, 2500]],\n\n\t\t\"BQH\": [\"Biggin Hill\", [1802, 792]],\n\n\t\t\"LBG\": [\"Paris-Le Bourget\", [2665, 3000, 1845]]\n\n\t}\n\n}";
@@ -160,13 +173,4 @@ elRezw.onclick = function (event) {
 elRezw.onchange = function () {
     if (checkForm())
         submit.style.display = "inline";
-};
-var elForm = getElementById("formularz");
-submit.onclick = function () {
-    var data = new FormData(elForm);
-    for (var _i = 0, data_1 = data; _i < data_1.length; _i++) {
-        var entry = data_1[_i];
-        el.innerHTML = el.innderHTML + " " + entry;
-    }
-    el.style.display = "inline";
 };

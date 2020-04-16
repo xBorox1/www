@@ -6,6 +6,7 @@
 		<title>Lista lotów</title>
 		<meta name='viewport' content='width=device-width, initial-scale=1'>
 		<link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+		<script src="load.js"></script> 
 	</head>
 	<body>
 
@@ -98,7 +99,7 @@
 		<div id="rezerwacja" class="rezerwacja">
 			<h1> Rezerwacja </h1>
 
-			<form id="formularz">
+			<form id="formularz" onsubmit="formSubmit();return false">
 				Imię: <input id="imie" type="text"> <br>
 				Nazwisko: <input id="nazwisko" type="text"> <br>
 

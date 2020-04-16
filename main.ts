@@ -41,10 +41,24 @@ function checkForm() {
 	const day = ("0" + now.getDate()).slice(-2);
 	const month = ("0" + (now.getMonth() + 1)).slice(-2);
 	const today = now.getFullYear() + "-" + (month) + "-" + (day);
-	console.log(today);
-	console.log(elData.value);
 	if(elData.value < today) return false;
 	return true;
+}
+
+function formSubmit() {
+	const elRez = document.querySelector("div.potwierdzenie");
+	const elFor = document.getElementById("formularz");
+	const elImie = document.getElementById("imie");
+	const elNazw = document.getElementById("nazwisko");
+	const elData = document.getElementById("data");
+	const elSkad = document.getElementById("skad");
+	const elDokad = document.getElementById("dokad");
+	elRez.innerHTML = elRez.innerHTML + "<br> Imię : " + elImie.value;
+	elRez.innerHTML = elRez.innerHTML + "<br> Nazwisko : " + elNazw.value;
+	elRez.innerHTML = elRez.innerHTML + "<br> Skąd : " + elSkad.value;
+	elRez.innerHTML = elRez.innerHTML + "<br> Dokąd : " + elDokad.value;
+	elRez.innerHTML = elRez.innerHTML + "<br> Data : " + elData.value;
+	elRez.style.display = "block";
 }
 
 zaloguj("Ja", "cię", "nie", "mogę");
@@ -144,14 +158,4 @@ elRezw.onclick = (event) => {
 // Sprawdzanie poprawności formularza.
 elRezw.onchange = () => {
 	if(checkForm()) submit.style.display = "inline";
-}
-
-let elForm = getElementById("formularz");
-
-submit.onclick = () => {
-	const data = new FormData(elForm);
-	for(const entry of data) {
-		el.innerHTML = el.innderHTML + " " + entry;
-	}
-	el.style.display = "inline";
 }
