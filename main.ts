@@ -2,6 +2,30 @@ function zaloguj(...komunikaty: string[]) {
 	console.log("Ależ skomplikowany program!", ...komunikaty);
 }
 
+async function teczoweKolory(elm: HTMLElement) {
+	const colors : string[] = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'purple'];
+	let i = 0;
+
+	while(true) {
+		i++;
+		if(i === colors.length) i = 0;
+		const wait = () => new Promise(res => setTimeout(res, 1000));
+		await wait();
+		elm.style.backgroundColor = colors[i];
+	}
+}
+
+async function showAvatar() {
+	const resp = await fetch('https://api.github.com/repos/Microsoft/TypeScript/commits').then((response) => 		{
+	return response.json();
+	});
+	const link = resp[0].author.avatar_url;
+	const newImage = document.createElement("img");
+	newImage.src = link;
+	newImage.alt = "Zdjęcie autora najnowszego commita";
+	document.body.appendChild(newImage);
+}
+
 zaloguj("Ja", "cię", "nie", "mogę");
 
 let jsonString: string = `{
@@ -68,3 +92,8 @@ setTimeout(() => {
 }
 
 timeout();
+
+let listaElement = document.getElementById("loty");
+teczoweKolory(listaElement);
+
+showAvatar();
