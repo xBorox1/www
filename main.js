@@ -93,25 +93,80 @@ function showAvatar() {
         });
     });
 }
+function Fib(i) {
+    if (i === 0)
+        return 1;
+    return Fib(i - 2) + Fib(i - 1);
+}
+function checkForm() {
+    var elImie = document.getElementById("imie");
+    if (elImie.value === "")
+        return false;
+    var elNazw = document.getElementById("nazwisko");
+    if (elNazw.value === "")
+        return false;
+    var elData = document.getElementById("data");
+    var now = new Date();
+    var day = ("0" + now.getDate()).slice(-2);
+    var month = ("0" + (now.getMonth() + 1)).slice(-2);
+    var today = now.getFullYear() + "-" + (month) + "-" + (day);
+    console.log(today);
+    console.log(elData.value);
+    if (elData.value < today)
+        return false;
+    return true;
+}
 zaloguj("Ja", "cię", "nie", "mogę");
 var jsonString = "{\n\n\t\"piloci\": [\n\n\t\t\"Pirx\",\n\n\t\t\"Exupery\",\n\n\t\t\"Idzikowski\",\n\n\t\t\"G\u0142\u00F3wczewski\"\n\n\t],\n\n\t\"lotniska\": {\n\n\t\t\"WAW\": [\"Warszawa\", [3690, 2800]],\n\n\t\t\"NRT\": [\"Narita\", [4000, 2500]],\n\n\t\t\"BQH\": [\"Biggin Hill\", [1802, 792]],\n\n\t\t\"LBG\": [\"Paris-Le Bourget\", [2665, 3000, 1845]]\n\n\t}\n\n}";
 function sprawdzDaneLiniiLotniczej(dane) {
     return dane && dane.piloci && dane.lotniska && dane.piloci.isArray && dane.piloci.isArray;
 }
+// Ukrycie przycisku submit.
 var submit = document.querySelector('input[type=submit]');
 submit.style.display = "none";
 var el = document.querySelector("div.potwierdzenie");
 el.style.display = "none";
+// Stworzenie paragrafu na dole body.
 var nowyElement = document.createElement("p");
 var beforeElement = document.getElementById("ostatni");
 nowyElement.innerHTML = "To paragraf stworzony w typescript.";
 document.body.appendChild(nowyElement);
+// 2-sekundowy timeout.
 function timeout() {
     setTimeout(function () {
         console.log("No już wreszcie.");
     }, 2000);
 }
 timeout();
+// Tęczowe kolory.
 var listaElement = document.getElementById("loty");
 teczoweKolory(listaElement);
+// Pokazywanie zdjęcia autora najnowszego commita.
 showAvatar();
+// Zmiana koloru tła po naciśnięciu.
+var elGrid = document.getElementById("grid");
+var elRezw = document.getElementById("rezerwacja");
+var ileKlik = 0;
+elGrid.onclick = function () {
+    var color = '#' + (0x1000000 + (Math.random()) * 0xffffff).toString(16).substr(1, 6);
+    elGrid.style.backgroundColor = color;
+    ileKlik++;
+    console.log(Fib(10 * ileKlik));
+};
+elRezw.onclick = function (event) {
+    event.stopPropagation();
+};
+// Sprawdzanie poprawności formularza.
+elRezw.onchange = function () {
+    if (checkForm())
+        submit.style.display = "inline";
+};
+var elForm = getElementById("formularz");
+submit.onclick = function () {
+    var data = new FormData(elForm);
+    for (var _i = 0, data_1 = data; _i < data_1.length; _i++) {
+        var entry = data_1[_i];
+        el.innerHTML = el.innderHTML + " " + entry;
+    }
+    el.style.display = "inline";
+};
