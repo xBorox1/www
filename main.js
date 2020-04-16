@@ -93,10 +93,12 @@ function showAvatar() {
         });
     });
 }
-function Fib(i) {
+function fib(i) {
     if (i === 0)
         return 1;
-    return Fib(i - 2) + Fib(i - 1);
+    if (i === 1)
+        return 1;
+    return fib(i - 2) + fib(i - 1);
 }
 function checkForm() {
     var elImie = document.getElementById("imie");
@@ -130,7 +132,7 @@ function formSubmit() {
     elRez.style.display = "block";
 }
 zaloguj("Ja", "cię", "nie", "mogę");
-var jsonString = "{\n\n\t\"piloci\": [\n\n\t\t\"Pirx\",\n\n\t\t\"Exupery\",\n\n\t\t\"Idzikowski\",\n\n\t\t\"G\u0142\u00F3wczewski\"\n\n\t],\n\n\t\"lotniska\": {\n\n\t\t\"WAW\": [\"Warszawa\", [3690, 2800]],\n\n\t\t\"NRT\": [\"Narita\", [4000, 2500]],\n\n\t\t\"BQH\": [\"Biggin Hill\", [1802, 792]],\n\n\t\t\"LBG\": [\"Paris-Le Bourget\", [2665, 3000, 1845]]\n\n\t}\n\n}";
+var jsonString = "{\n\t\"piloci\": [\n\t\t\"Pirx\",\n\t\t\"Exupery\",\n\t\t\"Idzikowski\",\n\t\t\"G\u0142\u00F3wczewski\"\n\t],\n\t\"lotniska\": {\n\t\t\"WAW\": [\"Warszawa\", [3690, 2800]],\n\t\t\"NRT\": [\"Narita\", [4000, 2500]],\n\t\t\"BQH\": [\"Biggin Hill\", [1802, 792]],\n\t\t\"LBG\": [\"Paris-Le Bourget\", [2665, 3000, 1845]]\n\t}\n}";
 function sprawdzDaneLiniiLotniczej(dane) {
     return dane && dane.piloci && dane.lotniska && dane.piloci.isArray && dane.piloci.isArray;
 }
@@ -164,7 +166,7 @@ elGrid.onclick = function () {
     var color = '#' + (0x1000000 + (Math.random()) * 0xffffff).toString(16).substr(1, 6);
     elGrid.style.backgroundColor = color;
     ileKlik++;
-    console.log(Fib(10 * ileKlik));
+    console.log(fib(10 * ileKlik));
 };
 elRezw.onclick = function (event) {
     event.stopPropagation();

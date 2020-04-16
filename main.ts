@@ -26,9 +26,10 @@ async function showAvatar() {
 	document.body.appendChild(newImage);
 }
 
-function Fib(i : number) {
+function fib(i : number) {
 	if(i === 0) return 1;
-	return Fib(i - 2) + Fib(i - 1);
+	if(i === 1) return 1;
+	return fib(i - 2) + fib(i - 1);
 }
 
 function checkForm() {
@@ -64,31 +65,18 @@ function formSubmit() {
 zaloguj("Ja", "cię", "nie", "mogę");
 
 let jsonString: string = `{
-
 	"piloci": [
-
 		"Pirx",
-
 		"Exupery",
-
 		"Idzikowski",
-
 		"Główczewski"
-
 	],
-
 	"lotniska": {
-
 		"WAW": ["Warszawa", [3690, 2800]],
-
 		"NRT": ["Narita", [4000, 2500]],
-
 		"BQH": ["Biggin Hill", [1802, 792]],
-
 		"LBG": ["Paris-Le Bourget", [2665, 3000, 1845]]
-
 	}
-
 }`;
 
 interface ILotnisko {
@@ -148,7 +136,7 @@ elGrid.onclick = () => {
 	const color = '#'+(0x1000000+(Math.random())*0xffffff).toString(16).substr(1,6);
 	elGrid.style.backgroundColor = color;
 	ileKlik++;
-	console.log(Fib(10 * ileKlik));
+	console.log(fib(10 * ileKlik));
 }
 
 elRezw.onclick = (event) => {
